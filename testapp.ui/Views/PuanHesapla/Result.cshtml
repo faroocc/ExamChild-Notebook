@@ -1,0 +1,46 @@
+<form>
+<div class="container mt-4 p-5" style="">
+    <div class="row">
+        <div class="col-3"></div>
+        <div class="col-3">Doğru Sayısı</div>
+        <div class="col-3">Yanlış Sayısı</div>
+        <div class="col-3">Toplam Net</div>
+    </div>
+    <div class="row mt-4">
+        <div class="col-3 mt-2">Genel Kültür</div>
+        <div class="col-3"><input class="form-control" value=""   type="text" name="gkcorrect" id="gkCorrect"></div>
+        <div class="col-3"><input class="form-control" value="" type="text" name="gkincorrect" id="gkIncorrect"></div>
+        <div class="col-3"><input class="form-control" value=""  type="text" name="gktotal" id="gkTotalNet"></div>
+    </div><div class="row mt-4">
+         <div class="col-3 mt-2">Genel Yetenek</div>
+        <div class="col-3"><input class="form-control" value="" type="text" name="" id="gyCorrect"></div>
+        <div class="col-3"><input class="form-control" value="" type="text" name="" id="gyIncorrect"></div>
+        <div class="col-3"><input class="form-control" value="" type="text" name="" id="gyTotalNet"></div>
+    </div>
+</div>
+<div class="row mr-4">
+    <div class="col-lg-6">
+        <div id="containerPuan" class="containerPuan">
+            <div id="net" class="net text-danger mt-4 display-2 btn btn-outline-light btn-lg d-none ">Kpss Puanınız<hr><div id="puan" class="puan display-4 mt-2 "></div><hr></div>
+        </div>
+    </div>
+     <div class="col-lg-3 p-2">
+     @if (User.Identity.IsAuthenticated)
+     {
+        <div class="text-right">
+             <button id="btnSave" type="submit" class="btn-gradient-warning text-dark btn btn-m mt-3">Kaydet</button>
+        </div>
+     }else{
+        @* <div id="login" class="text-center mt-3 d-none">
+           <div class="text-info">Kaydetmet için <a href="/account/login" class="text-dark btn btn-danger btn-sm">Giriş</a> Yapın</div> 
+        </div> *@
+     }
+     </div>
+    <div class="col-lg-3">
+        <div class="text-right">
+            <a name="" id="btn" class="btn btn-m btn-gradient-info mt-4" href="#" role="button">Hesapla</a>
+        </div>
+    </div>
+</div>
+   
+</form>

@@ -1,0 +1,67 @@
+  @using testapp.entity.Concrete; 
+    <div class="sonucEkran p-2">
+        <div class="row">
+            <div class="col-3">
+                <div class="mt-5" style="font-weight: 1000;"> Genel Yetenek </div>
+                <div class="mt-5" style="font-weight: 1000;"> Genel Kültür </div>
+            </div>
+            <div class="col-3">Doğru Sayısı
+                <div class="form-group mt-3">
+                    <input type="text" id="Dcevap" name="GKCorrect" class="form-control" placeholder="Doğru cevap"
+                        required="">
+                </div>
+                @* <div class="form-group mt-3">
+                    <input type="text" id="DGYcevap" name="GYCorrect" class="form-control" placeholder="Doğru cevap"
+                        required="">
+                </div> *@
+            </div>
+            <div class="col-3">Yanlış Sayısı
+                <div class="form-group mt-3">
+                    <input type="text" id="Ycevap" name="GKINCorrect" class="form-control" placeholder="Yanlış cevap"
+                        required="">
+                </div>
+                @* <div class="form-group mt-3">
+                    <input type="text" id="YGYcevap" name="GYINCorrect" class="form-control" placeholder="Yanlış cevap"
+                        required="">
+                </div> *@
+            </div>
+            <div class="col-3">Toplam Net
+                <div class="form-group mt-3">
+                    <input type="text" id="result" name="GKTotalNet" value="" class="form-control" placeholder="Net"
+                        required="">
+                </div>
+                @* <div class="form-group mt-3">
+                    <input type="text" id="GYresult" name="GYTotalNet" class="form-control" placeholder="Net" required="">
+                </div> *@
+            </div>
+           
+        </div>
+    </div>
+    </div>
+    </div>
+
+
+<script type="text/javascript">
+    $("#btn").click(function () {
+        let values = {
+            GKCorrect: $("#Dcevap").val(),
+            GYCorrect: $("#DGYcevap").val(),
+            GKINCorrect: $("#Ycevap").val(),
+            GYINCorrect: $("#YGYcevap").val(),
+            GKTotalNet: $("#GKTotalNet").val(),
+            GYTotalNet: $("#GYTotalNet").val()
+        };
+        $.ajax({
+            type: "post",
+            url: "/Home/LessonAdd/",
+            data: values,
+            success: function (func) {
+                let result = jQuery.parseJSON(func);
+            }
+        });
+    });
+
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  

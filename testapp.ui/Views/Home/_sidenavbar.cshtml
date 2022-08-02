@@ -1,0 +1,54 @@
+<nav class="sidebar sidebar-offcanvas mt-5" id="sidebar">
+          <ul class="nav">
+             @if (User.Identity.IsAuthenticated)
+            {
+           
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="collapse" href="#general-pages" aria-expanded="false" aria-controls="general-pages">
+                <span class="menu-title">Profilim</span>
+                <i class="menu-arrow"></i>
+                <i class="mdi mdi-account menu-icon"></i>
+              </a>
+              <div class="collapse" id="general-pages">
+                <ul class="nav flex-column sub-menu">
+                  <li class="nav-item"> <a class="nav-link" href="/profile/index"> Sonuçlarım </a></li>
+                  <li class="nav-item"> <a class="nav-link" href="pages/samples/login.html"> Puan Hesapla </a></li>
+                  <li class="nav-item"> <a class="nav-link" href="/Profile/ProfileDetail"> Kişisel Bilgiler </a></li>
+                  <li class="nav-item"> <a class="nav-link" href="/Profile/PasswordChange">Şifre Değiştir</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="pages/samples/error-500.html"> Notlarım </a></li>
+                </ul>
+              </div>
+            </li>
+              
+            } else{
+
+             <li class="nav-item">
+              <a class="nav-link" href="/Account/register/">
+                <span class="menu-title">Üye Ol</span>
+                <i class="fa-solid fa-address-card menu-icon"></i>
+              </a>
+            </li>
+             <li class="nav-item">
+              <a class="nav-link" href="/Account/login/">
+                <span class="menu-title">Giriş Yap</span>
+                <i class="fa-solid fa-arrow-right-to-bracket menu-icon"></i>
+              </a>
+            </li>
+            }
+            <li class="nav-item">
+              <a class="nav-link" href="/home/index">
+                <span class="menu-title">Süre Tut</span>
+                <i class="fa-regular fa-clock menu-icon"></i>
+              </a>
+            </li>
+            
+            <li class="nav-item">
+              <a class="nav-link" href="/PuanHesapla/index">
+                <span class="menu-title">Puan Hesapla</span>
+                <i class="fa-solid fa-calculator menu-icon"></i>
+              </a>
+            </li>
+           
+           
+          </ul>
+        </nav>

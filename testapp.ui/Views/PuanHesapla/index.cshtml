@@ -1,0 +1,63 @@
+@{
+  ViewData["Title"] = "Puan";
+  Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@section scripts {
+    <script>
+      let gkCorrect=document.getElementById("gkCorrect");
+      let gkInCorrect=document.getElementById("gkIncorrect");
+      let gkTotalNet=document.getElementById("gkTotalNet");
+      let gyCorrect=document.getElementById("gyCorrect");
+      let gyInCorrect=document.getElementById("gyIncorrect");
+      let gyTotalNet=document.getElementById("gyTotalNet");
+      let net=document.getElementById("net");
+      let login=document.getElementById("login");
+      let puan=document.getElementById("puan");
+      let containerpuan=document.getElementById("containerPuan");
+      let btn=document.getElementById("btn");
+      
+     btn.addEventListener("click",formsubmit = (event)=>{
+       event.preventDefault();
+       localStorage.setItem("GkCorrectscore",gkCorrect.value);
+       localStorage.setItem("GkINCorrectscore",gkInCorrect.value);
+       localStorage.setItem("GYCorrectscore",gyCorrect.value);
+       localStorage.setItem("GYINCorrectscore",gyInCorrect.value);
+
+       
+       gkTotalNet.value=gkCorrect.value - gkInCorrect.value /4;
+       gyTotalNet.value=gyCorrect.value - gyInCorrect.value /4;
+       net.classList.remove("d-none");
+       
+       puan.innerHTML=gkTotalNet.value * 0.5 + gyTotalNet.value * 0.5 + 40;
+       localStorage.setItem("TotalPoint",puan.innerHTML);
+       console.log(puan.value)
+        
+            
+      $("#btnSave").click(function(){
+        let values = {
+            ResultGY: $("#gkTotalNet").val(),
+            ResultGK: $("#gyTotalNet").val(),
+            ResultPoint: $("#puan").html()
+            
+        };
+     
+         $.ajax({
+            type:"post",
+            url: "/PuanHesapla/Result/",
+            data: values,
+            success:function(funct){
+                let result = jQuery.parseJSON(funct);
+                console.log("başarılı")
+            }
+            
+        });
+        
+     });
+     })    
+    </script>
+}
+
+
+     @await Html.PartialAsync("/Views/PuanHesapla/Result.cshtml")
+
+
